@@ -68,6 +68,9 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
 
+      - name: Grant execute permission to gradlew
+        run: chmod +x ./gradlew
+
       - name: Run the Application
         run: ./gradlew bootRun & # Start the application in the background
 
