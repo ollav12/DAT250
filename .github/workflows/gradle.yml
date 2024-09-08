@@ -62,6 +62,9 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
 
+      - name: Wait for Application to Start
+        run: sleep 30 # Wait for the application to start
+
       - name: Run Postman Tests
         run: newman run postman.postman_collection.json
 
