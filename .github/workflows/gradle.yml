@@ -71,11 +71,17 @@ jobs:
       - name: Grant execute permission to gradlew
         run: chmod +x ./gradlew
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
       - name: Run the Application
         run: ./gradlew bootRun & # Start the application in the background
 
       - name: Wait for Application to Start
-        run: sleep 10 # Adjust the duration based on your application's startup time
+        run: sleep 1 # Adjust the duration based on your application's startup time
 
       - name: Run Postman Tests
         run: newman run postman.postman_collection.json
