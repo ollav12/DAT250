@@ -1,0 +1,18 @@
+meta {
+  name: Update a user given username
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:8080/users/bob
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "bob2",
+    "email": "bob@gmail.coem"
+  }
+}

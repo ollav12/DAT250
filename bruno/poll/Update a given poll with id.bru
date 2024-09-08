@@ -1,0 +1,23 @@
+meta {
+  name: Update a given poll with id
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:8080/polls/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "question": "What is y?",
+    "options": [
+      {"caption": "Red"},
+      {"caption": "Blue"},
+      {"caption": "Green"}
+    ],
+    "validUntil": "2024-12-31T23:59:59Z"
+  }
+}

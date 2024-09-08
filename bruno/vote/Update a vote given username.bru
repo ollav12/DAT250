@@ -1,0 +1,20 @@
+meta {
+  name: Update a vote given username
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:8080/users/bob/votes/0
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "option": {
+      "caption": "Green",
+      "presentationOrder": 1
+    }
+  }
+}

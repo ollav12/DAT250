@@ -1,0 +1,28 @@
+meta {
+  name: Create a new poll
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/polls
+  body: json
+  auth: none
+}
+
+headers {
+  Key: Content-type
+  Value: application/sjon
+}
+
+body:json {
+  {
+    "question": "What is your favorite color?",
+    "options": [
+      {"caption": "Red"},
+      {"caption": "Blue"},
+      {"caption": "Green"}
+    ],
+    "validUntil": "2024-12-31T23:59:59Z"
+  }
+}

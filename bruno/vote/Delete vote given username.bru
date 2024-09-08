@@ -1,0 +1,11 @@
+meta {
+  name: Delete vote given username
+  type: http
+  seq: 4
+}
+
+delete {
+  url: http://localhost:8080/users/bob/votes
+  body: none
+  auth: none
+}
