@@ -68,6 +68,12 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
 
+      - name: Run the Application
+        run: ./gradlew bootRun & # Start the application in the background
+
+      - name: Wait for Application to Start
+        run: sleep 10 # Adjust the duration based on your application's startup time
+
       - name: Run Postman Tests
         run: newman run postman.postman_collection.json
 
