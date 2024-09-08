@@ -27,8 +27,13 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
-      - name: Build with Gradle Wrapper
-        run: ./gradlew test
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Run the Application
+        run: ./gradlew bootRun & # Start the application in the background
+        env:
+          SPRING_PROFILES_ACTIVE: test # Optionally set active profiles for testing
 
   dependency-submission:
     runs-on: ubuntu-latest
@@ -49,6 +54,7 @@ jobs:
   test:
 
     runs-on: ubuntu-latest
+    needs: build # Ensure the build job completes before running tests
 
     steps:
       - name: Checkout code
@@ -57,7 +63,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Specify the required Node.js version
+          node-version: '16'
 
       - name: Install Newman
         run: npm install -g newman
@@ -66,5 +72,5 @@ jobs:
         run: sleep 30 # Wait for the application to start
 
       - name: Run Postman Tests
-        run: newman run postman.postman_collection.json
+        run: newman run path/to/your/postman.postman_collection.json
 
