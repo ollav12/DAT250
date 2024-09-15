@@ -1,4 +1,4 @@
-# Da250 - Expass 3
+# DAT250 - Expass 3
 - Olav Høysæther Opheim
 
 ## Short report
