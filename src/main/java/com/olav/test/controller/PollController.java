@@ -12,6 +12,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping("/polls")
+@CrossOrigin(origins = "http://localhost:5173")
 public class PollController {
 
     private final PollManager manager;

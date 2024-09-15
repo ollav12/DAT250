@@ -5,7 +5,16 @@ meta {
 }
 
 post {
-  url: http://localhost:8080/users/bob/votes
-  body: none
+  url: http://localhost:8080/users/testing123/votes
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "option": {
+      "caption": "Red",
+      "presentationOrder": 1
+    }
+  }
 }
