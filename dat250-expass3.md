@@ -19,7 +19,7 @@ Steps:
 my first time using svelte so it was a bit difficult to get started, but the documentation was good so that helped a lot.
 
 ## Link to code
-- Link to frontend GitHub repository if that is needed: 
+- Link to frontend GitHub repository if that is needed: https://github.com/ollav12/DAT250Expass3
 - There were only minor changes to the backend like just adding the @CrossOrigin(...) to the controller files
 
 ## Pending issues
