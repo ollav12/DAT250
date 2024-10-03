@@ -16,29 +16,29 @@ In this i got familiar with MongoDB by following the tutorial, reading, setting 
 In this experiment i followed the tutorial linked in the assignment, and below you can find some screenshots from me following the tutorial using the mongo shell
 
 ### Insert
-Using InsertOne()
+- Using InsertOne()
 ![alt text](image-9.png)
 
-Using Find()
+- Using Find()
 ![alt text](image-10.png)
 
-Using insertMany()
+- Using insertMany()
 ![alt text](image-11.png)
 
 ### Query
-I insert some data into a collection so that i can do some queries.
+- I insert some data into a collection so that i can do some queries.
 ![alt text](image-12.png)
 
-A simple find query-
+- A simple find query
 ![alt text](image-13.png)
 
-Use find and specify "AND" conditions
+- Use find and specify "AND" conditions
 ![alt text](image-14.png)
 
-Here is a more complex query i used in the tutorial
+- Here is a more complex query i used in the tutorial
 ![alt text](image-15.png)
 
-which corresponds to the following sql statement: SELECT * FROM inventory WHERE status = "A" AND ( qty < 30 OR item LIKE "p%")
+- which corresponds to the following sql statement: SELECT * FROM inventory WHERE status = "A" AND ( qty < 30 OR item LIKE "p%")
 
 ### Update
 - First i insert the data we are using for this tutorial
