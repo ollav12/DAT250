@@ -37,6 +37,7 @@
 ![alt text](image-32.png)
 
 ## Part 2: Creating a docker image
+- The docker file is located in this repository but here is also a link: https://github.com/ollav12/DAT250/blob/main/Dockerfile
 
 ### Creating the Dockerfile
 - I created a dockerfile
