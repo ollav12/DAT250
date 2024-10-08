@@ -38,8 +38,27 @@
 
 ## Part 2: Creating a docker image
 
+### Creating the Dockerfile
+- I created a dockerfile
+![alt text](image-34.png)
 
+### Running docker build command
+- In the image below you can see the docer command i used to create the docker image
+![alt text](image-33.png)
+
+### Checking that the image was created and testing it
+- I ran "docker images" to list all images created, we can infact see that the image is created.
+![alt text](image-35.png)
+
+- Running the image also works as you can see in the image below
+![alt text](image-36.png) 
+
+- Another image showing running docker containers
+![alt text](image-37.png)
 
 ## Issues and techical difficulites
-- The "jpa_client" user did not have the correct privelages in the database to execute the sql scripts so when connecting to the databse with the user, all the tests failed. I updated to give access/permission in all tables and the tests now pass!
-- I tinkered around with the .xml file to see if there were some settings there that was causing the databse to not update/create the tables. Once i reread the tutorial i saw that i had to manually execute the schema.up.sql in dbeaver for the tables to be created.
+- Part 1:
+    - The "jpa_client" user did not have the correct privelages in the database to execute the sql scripts so when connecting to the databse with the user, all the tests failed. I updated to give access/permission in all tables and the tests now pass!
+    - I tinkered around with the .xml file to see if there were some settings there that was causing the databse to not update/create the tables. Once i reread the tutorial i saw that i had to manually execute the schema.up.sql in dbeaver for the tables to be created.
+- Part 2:
+    - I struggled alot with being able to create the docker image, so i used alot of time to check if the issues was in the gradle files. I concluded that the issue was in the dockerfile since: gradle bootRun, gradle test, gradle clean and gradle bootJar all worked localy. I then made some changes to the dockerfile and creating an docker image was succesful!
