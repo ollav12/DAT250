@@ -1,4 +1,4 @@
-package com.olav.test.repository;
+package com.olav.test.manager;
 
 import org.springframework.stereotype.Component;
 

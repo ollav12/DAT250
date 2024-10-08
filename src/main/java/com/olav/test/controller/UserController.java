@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.olav.test.model.User;
-import com.olav.test.repository.PollManager;
+import com.olav.test.manager.PollManager;
 
 import java.util.HashMap;
 
@@ -25,7 +25,8 @@ public class UserController {
     /**
      * Retrieves all users from the PollApp
      *
-     * @return A ResponseEntity containing a HashMap of users (if anay) with an HTTP status code of 200 (OK)
+     * @return A ResponseEntity containing a HashMap of users (if anay) with an HTTP
+     *         status code of 200 (OK)
      */
     @GetMapping
     public ResponseEntity<HashMap<String, User>> getUsers() {
@@ -37,13 +38,14 @@ public class UserController {
      * Creates a new user given a user arguments in a http query
      *
      * @param user
-     * @return A new User with a HTTP status code of 201 (Succsessfully created a new resource)
+     * @return A new User with a HTTP status code of 201 (Succsessfully created a
+     *         new resource)
      */
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
         HashMap<String, User> users = pollManager.getUsers();
         String username = user.getUsername();
-        if(users.containsKey(username)) {
+        if (users.containsKey(username)) {
             return new ResponseEntity<>(HttpStatusCode.valueOf(409));
         }
         users.put(username, user);

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.olav.test.model.Poll;
-import com.olav.test.repository.PollManager;
+import com.olav.test.manager.PollManager;
 
 import java.util.HashMap;
 
@@ -26,7 +26,8 @@ public class PollController {
     /**
      * Retrieves all polls from the PolApp
      *
-     * @return A ResponseEntity containing a HashMap of polls (if anay) with an HTTP status code of 200 (OK)
+     * @return A ResponseEntity containing a HashMap of polls (if anay) with an HTTP
+     *         status code of 200 (OK)
      */
     @GetMapping
     public ResponseEntity<HashMap<Integer, Poll>> getPolls() {
@@ -39,7 +40,8 @@ public class PollController {
      * Creates a new poll given a poll arguments in a http query
      *
      * @param poll
-     * @return A new Poll with a HTTP status code of 201 (Succsessfully created a new resource)
+     * @return A new Poll with a HTTP status code of 201 (Succsessfully created a
+     *         new resource)
      */
     @PostMapping
     public ResponseEntity<Poll> createNewPoll(@RequestBody Poll poll) {
@@ -67,7 +69,7 @@ public class PollController {
 
         HashMap<Integer, Poll> polls = manager.getPolls();
 
-        if(poll != null && polls.containsKey(id)) {
+        if (poll != null && polls.containsKey(id)) {
             polls.put(id, poll);
             return new ResponseEntity<>(polls, HttpStatusCode.valueOf(200));
         }
@@ -81,7 +83,7 @@ public class PollController {
      * @return An empty HashMap for polls and a HTTP status code of 204 (No Content)
      */
     @DeleteMapping
-    public ResponseEntity<HashMap<Integer,Poll>> deleteAllPolls() {
+    public ResponseEntity<HashMap<Integer, Poll>> deleteAllPolls() {
         HashMap<Integer, Poll> polls = manager.getPolls();
         polls.clear();
         id = 0;

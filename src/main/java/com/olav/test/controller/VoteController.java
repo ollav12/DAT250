@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.olav.test.repository.PollManager;
+import com.olav.test.manager.PollManager;
 import com.olav.test.model.User;
 import com.olav.test.model.Vote;
 
@@ -47,7 +47,8 @@ public class VoteController {
      *
      * @param username
      * @param vote
-     * @return A new vote and a Http status code of value 201 (Succsessfully created a new resource)
+     * @return A new vote and a Http status code of value 201 (Succsessfully created
+     *         a new resource)
      */
     @PostMapping("/{username}/votes")
     public ResponseEntity<Vote> createUserVote(@PathVariable String username, @RequestBody Vote vote) {
@@ -70,7 +71,8 @@ public class VoteController {
      * @return
      */
     @PutMapping("/{username}/votes/{id}")
-    public ResponseEntity<Vote> updateUserVote(@PathVariable String username, @RequestBody Vote vote, @PathVariable int id) {
+    public ResponseEntity<Vote> updateUserVote(@PathVariable String username, @RequestBody Vote vote,
+            @PathVariable int id) {
         HashMap<String, User> users = pollManager.getUsers();
         if (users.containsKey(username)) {
             User user = users.get(username);
@@ -93,7 +95,7 @@ public class VoteController {
         if (users.containsKey(username)) {
             User user = users.get(username);
             List<Vote> votes = user.getVotes();
-            if(!votes.isEmpty()) {
+            if (!votes.isEmpty()) {
                 votes.clear();
             }
             return new ResponseEntity(HttpStatusCode.valueOf(204));
@@ -111,7 +113,7 @@ public class VoteController {
         HashMap<String, User> users = pollManager.getUsers();
         for (User user : users.values()) {
             List<Vote> votes = user.getVotes();
-            if(!votes.isEmpty()) {
+            if (!votes.isEmpty()) {
                 votes.clear();
             }
         }
