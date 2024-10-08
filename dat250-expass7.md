@@ -12,8 +12,8 @@
 - I run the "docker pull postgres" command in terminal to download a postgre image to my machine.
 ![alt text](image-25.png)
 
-### Docker ...
-- Creating a docker instance
+### Running docker
+- Running a docker image of postgre with username and password
 ![alt text](image-26.png) 
 
 - Running "docker ps" and "docker logs jpa"
@@ -33,7 +33,7 @@
 - Using DBeaver i manually execute the sql query script "scheme.up.sql" that is created when gradle test is ran and the database is up to date
 ![alt text](image-31.png)
 
-- I updated the privelages to the "jpa_client" user so that the test would pass (see issues).
+- I updated the privelages to the "jpa_client" user so that the test would pass (see issues), test does not pass in github actions not sure why but they work localy.
 ![alt text](image-32.png)
 
 ## Part 2: Creating a docker image
@@ -61,5 +61,6 @@
 - Part 1:
     - The "jpa_client" user did not have the correct privelages in the database to execute the sql scripts so when connecting to the databse with the user, all the tests failed. I updated to give access/permission in all tables and the tests now pass!
     - I tinkered around with the .xml file to see if there were some settings there that was causing the databse to not update/create the tables. Once i reread the tutorial i saw that i had to manually execute the schema.up.sql in dbeaver for the tables to be created.
+    - Tests fail on github actions, not spend much time trying to figure out why. They work fine locally.
 - Part 2:
     - I struggled alot with being able to create the docker image, so i used alot of time to check if the issues was in the gradle files. I concluded that the issue was in the dockerfile since: gradle bootRun, gradle test, gradle clean and gradle bootJar all worked localy. I then made some changes to the dockerfile and creating an docker image was succesful!
